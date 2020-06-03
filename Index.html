@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>081417152陈庆旭</title>
+    <!--用来加载外部资源用的标签(做网页的头部图片）-->
+    <!-- 相对路径-->
+    <link rel="short icon" href="Resource/Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStyle.css">
+    <style>
+        .i_head{
+            text-align: center;
+        }
+        .i_head img{
+            margin-top: 50px;
+            margin-bottom:40px;
+        }
+        .i_inner{
+            background:white;
+            width:90%;
+            margin: 0 auto;
+            border-radius: 5px;
+            height: 90px;
+        }
+        .i_inner div{
+            height: 45px;
+        }
+        .i_inner span{
+            margin-left: 10px;
+            font-size: 20px;
+            line-height: 45px;
+        }
+        input{
+            outline: medium;background-color: transparent;border:0
+        }
+        .i_login{
+            background: blue;
+            height: 45px;
+            border-radius: 5px;
+            width:90%;
+            margin: 0 auto;
+            margin-top:20px;
+            text-align: center;
+        }
+        .i_login input{
+            color:white;
+            line-height: 45px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span>
+        登录
+    </span>
+</header>
+
+<div class="i_head">
+    <img src="Resource/Resource/head.png">
+</div>
+
+<form>
+    <div class="i_inner">
+        <div  style="border-bottom: 1px solid #dddddd">
+            <span>账号：</span>
+            <input id="i_account" type="text" value=""><br>
+        </div>
+        <div>
+            <span>密码：</span>
+            <input id="i_pwd" type="password" value=""><br>
+        </div>
+    </div>
+    <div class="i_login">
+       <input id="i_btn"type="button" value="登录">
+    </div>
+
+<!--      <div class="i_login">
+        <input type="button" value="登录" onclick="sum(3,6)">
+    </div>
+
+    <div class="i_login">
+        <input type="button" value="登录" onclick="sum1(3,6)">
+    </div>
+        <div class="i_login">
+       <input id="i_btn" type="button" value="登录">
+    </div>
+    三种使用js函数的方法-->
+
+
+</form>
+
+<script>
+  /*普通方式定义*/
+   /*function sum(a,b){
+        var c=a+b;
+        alert("chen");
+        return c
+    }*/
+/*下面两种为变量名定义*/
+   /* var sum1= function(a,b){
+        var c=a+b;
+        alert("qing");
+        return c;
+    }*/
+    /*无参数情况下使用*/
+  /* var btn = document.getElementById("i_btn");
+    btn.onclick = function(){
+        sum(1,3);
+        sum1(2,2);
+    }*/
+  /*var btn = document.getElementById("i_btn");
+  btn.onclick = function(){*/
+      /*  var username=encodeURIComponent(document.getElementById("i_account").value);
+        var pwd=encodeURIComponent(document.getElementById("i_pwd").value);
+     //第一步：创建一个网络请求对象（http），去服务器要数据，接收服务端数据
+      var xhr = new XMLHttpRequest();
+
+      //第二步：与服务端建立连接（get、post）请求方式，连接那个服务器，用连接这个服务器的那个接口如：/login
+      xhr.open('post','https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login')
+      //设置请求头，告诉服务咱们传递的数据是以表单形式传递过去
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+
+      //第三步：向服务器发送请求(传参)
+      xhr.send("username=" + username + "&pwd=" +pwd);
+
+      //第四步：接收服务器返回的数据
+      xhr.onreadystatechange = function(){
+          //xhr.readyState==4 代表数据请求完成
+          //xhr.status==200 代表数据成功返回
+          if(xhr.readyState == 4 && xhr.status == 200){
+              //responseText包含了服务端返回的数据
+              var responseData = JSON.parse(xhr.responseText);
+              var str = responseData.data;
+              if(str == "登录成功"){
+                  location.href="DropletService.html";
+              }else{
+                  alert(str);
+              }
+          }
+      }*/
+
+     /* var xhr = new XMLHttpRequest();
+      xhr.open('get','https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus');
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      xhr.send();
+      xhr.onreadystatechange = function(){
+          if(xhr.readyState == 4 && xhr.status == 200){
+              var responseData = JSON.parse(xhr.responseText);
+              var str = responseData.data;
+              var sttr = str.subTitle;
+          }
+      }
+    }*/
+
+</script>
+<script type="text/javascript " src="ajax.js"></script>
+<script type="text/javascript">
+    var btn = document.getElementById("i_btn");
+    btn.onclick = function() {
+       var a = ajax;
+        var username=encodeURIComponent(document.getElementById("i_account").value);
+        var pwd=encodeURIComponent(document.getElementById("i_pwd").value);
+     var type = "post";
+     var url = 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login';
+     var params ="username=" + username + "&pwd=" +pwd;
+     var dataType = "json";
+        a(type,url,params,dataType,function(aa){
+            if(aa == "登录成功"){
+                location.href="DropletService.html";
+            }
+        })
+      /*  var a =  ajax;
+        var type = "get";
+        var url = 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus';
+        var params=null;
+        var dataType = "json";
+        a(type,url,params,dataType,function(resulet){})*/
+    }
+</script>
+</body>
+</html>

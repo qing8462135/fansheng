@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+header{
+    color: white;
+    line-height: 44px;
+    font-size: 18px;
+    background: rgb(40,133,202);
+    text-align: center;
+    width:100%;
+    /*left对应X坐标，top对应y坐标*/
+    left:0;
+    top:0;
+    position: fixed;/*位置固定*/
+    z-index: 99;/*调节层次将header放在最顶层，只要比下面的层数多就行*/
+}
+
+.DS_second_section img{
+    width: 100%;
+}
+
+.BP_second_section{
+    display:table;
+    width:100%;
+    background:rgb(244,244,246);
+    height: 44px;
+    left:0;
+    top: 44px;
+    position:fixed;
+}
+.BP_second_section a{
+    display:table-cell;
+    width:33.3%;
+    text-align: center;
+    line-height: 2em;
+    text-decoration: none;
+}
+.BP_external_div{
+    background:white;
+    text-align:center;
+}
+.BP_external_div_sec{
+    text-align:center;
+}
+.BP_first_p{
+    font-size:10px;
+    color:gray;
+}
+.BP_img{
+    width:100%;
+}
+.BP_span{
+    font_size:14px;
+}
+.BP_inner_div{
+    text-align:left;
+    padding-left:20px;
+    font-size:10px;
+    color:gray;
+    line-height:2em;
+}
+body{
+    background: rgb(244,244,246);
+    padding-top:44px;/*表示出了header标签中的元素全部向下移动44个像素*/
+    padding-bottom:60px;
+}
+
+footer {
+    display:table;
+    background: black;
+    width:100%;
+    height: 60px;
+    left:0;
+    bottom:0;
+    position: fixed;
+}
+footer a{
+    display:table-cell;
+    width:20%;
+    text-align:center;
+    vertical-align: middle;
+}
+footer a span{
+    display:block;/*让标签文字独立成行*/
+    text-decoration: none;
+    color:white;
+    font-size: 5px;
+}
+footer a img{
+   height: 20px;
+    width: 20px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>081417152陈庆旭</title>
+    <link rel="short icon" href="Resource/Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStyle.css">
+
+    <style>
+        article{
+            margin:20px;
+        }
+
+        h3{
+            color:red;
+            font-size:18px;
+            padding-bottom:10px;
+            border-bottom:1px solid #dddddd;
+        }
+        h4{
+            font-size:14px;
+        }
+        p{
+            font-size:12px;
+            text-indent: 2em;/*em表示倍数*/
+            line-height: 2em;/*以字为中线上下空平均空出12px的距离*/
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <span>平台风采</span>
+</header>
+
+<!--第二部分-->
+<!--放图片标签-->
+<section class="DS_second_section">
+    <img src="Resource/Resource/banner4.png" alt="请检查网络">
+</section>
+
+<!--第三部分-->
+<article>
+    <h3 id="title"></h3>
+    <h4 id="subtitle_1"></h4>
+    <p id="inner"></p>
+
+    <script type="text/javascript" src="ajax.js"></script>
+    <script>
+
+        function assign(str){
+            var title_tag = document.getElementById("title");
+            var subTitle = document.getElementById("subtitle_1");
+            var info_catch = document.getElementById("inner");
+
+            title_tag.innerHTML = str.title;
+            subTitle.innerHTML = str.subTitle;
+            info_catch.innerHTML = str.info;
+        }
+
+        var str_text = JSON.parse(localStorage.getItem("platform_json"));
+
+        if(str_text){
+            var str = str_text.data;
+           assign(str);
+        }else{
+            var a =  ajax;
+            var type = "get";
+            var url = 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus';
+            var params=null;
+            var dataType = "json";
+            a(type,url,params,dataType,function(result,result1){
+                assign(result);
+                window.localStorage.setItem("platform_json",result1)
+            });
+
+
+
+            /*xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var responseData = JSON.parse(xhr.responseText);
+                    var str = responseData.data;
+                    window.localStorage.setItem("platform_json",xhr.responseText);
+                    //localStorage.removeItem("platform_json")
+                  assign(str);
+                }
+            }*/
+        }
+    </script>
+
+</article>
+
+
+<!--第四部分-->
+<footer>
+    <a href="DropletService.html"> <img src="Resource/Resource/nav10.png"> <span >小滴服务</span></a>
+    <a href="BusinessProject.html"> <img src="Resource/Resource/nav20.png"> <span>企业项目</span></a>
+    <a href="ServiceProcess.html"> <img src="Resource/Resource/nav30.png"> <span>服务流程</span></a>
+    <a href="PlatformMien.html" id="P_fengcai"> <img src="Resource/Resource/nav41.png"> <span style="color: red">平台风采</span></a>
+    <a href="MyDroplet.html"> <img src="Resource/Resource/nav50.png"> <span>我的小滴</span></a>
+</footer>
+</body>
+
+
+</html>
